@@ -43,8 +43,15 @@ fecha_seleccion = st.sidebar.date_input(
 # ------------------------
 # 3️⃣ Cargar modelos
 # ------------------------
-model_norte = joblib.load("train_models/modelo_norte.pkl")
-model_sur   = joblib.load("train_models/modelo_sur.pkl")
+# model_norte = joblib.load("train_models/modelo_norte.pkl")
+# model_sur   = joblib.load("train_models/modelo_sur.pkl")
+
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent  # carpeta donde está app3.py
+
+model_norte = joblib.load(BASE_DIR / "train_models" / "modelo_norte.pkl")
+model_sur   = joblib.load(BASE_DIR / "train_models" / "modelo_sur.pkl")
 
 model = model_norte if terminal == "TERMINAL NORTE" else model_sur
 
