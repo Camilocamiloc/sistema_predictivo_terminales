@@ -62,7 +62,7 @@ def crear_rango_horas(fecha):
     horas = pd.date_range(
         start=pd.Timestamp(fecha.year, fecha.month, fecha.day, 6),
         end=pd.Timestamp(fecha.year, fecha.month, fecha.day, 21),
-        freq='H'
+        freq='1h'
     )
     df_pred = pd.DataFrame({"ds": horas})
     df_pred["is_weekend"] = df_pred["ds"].dt.dayofweek.isin([5,6]).astype(int)
